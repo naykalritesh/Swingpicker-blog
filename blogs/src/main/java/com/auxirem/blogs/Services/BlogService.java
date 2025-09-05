@@ -1,6 +1,7 @@
 package com.auxirem.blogs.Services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +18,17 @@ public class BlogService {
     // Get all blogs
     public List<Blog> getAllBlogs() {
         return blogRepository.findAll();
+    }
+    public Blog getBlogById(Long id) {
+        Optional<Blog> existingBlog = blogRepository.findById(id);
+        if (existingBlog.isPresent()) {
+           return  existingBlog.get();
+        }else{
+           
+            return null;
+           
+        }
+    
     }
 
     public Blog createNewBlog(Blog blog){
@@ -42,4 +54,6 @@ public class BlogService {
     public void deleteBlog(Long id) {
          blogRepository.deleteById(id);
     }
+
+
 }

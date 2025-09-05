@@ -27,6 +27,13 @@ public class BlogController {
     public List<Blog> getAllBlogs() {
         return blogService.getAllBlogs();
     }
+
+    //Get Blog by id
+    @GetMapping("/{id}")
+    public Blog getBlogById(@PathVariable Long id){
+        return blogService.getBlogById(id);
+    }
+
     // create new blog
     @PostMapping("/add")
     public Blog createNewBlog(@RequestBody Blog blog){
