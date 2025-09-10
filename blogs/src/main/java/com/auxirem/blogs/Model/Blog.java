@@ -21,13 +21,12 @@ public class Blog {
     private long id;
 
     @Column(nullable = false)
-    private String Title;
+    private String title;
 
     
 
-    @Column(columnDefinition = "Text",nullable = false)
-   // private String slug; //SEO friendly URL
-    private String Description;
+    @Column(columnDefinition = "MEDIUMTEXT",nullable = false)
+    private String description;
     private String images;
     private String author;
     private String category;
@@ -40,10 +39,13 @@ public class Blog {
 
     private Integer readTime;
     private Integer viewsCount = 0;
-   // private Boolean commentsEnabled = true;
     private String metaTitle;
     private String metaDescription;
+
+    @Column(nullable = true)
     private LocalDateTime created_On;
+
+    @Column(nullable = true)
     private LocalDateTime updated_On;  
    
     public long getId() {
@@ -53,22 +55,16 @@ public class Blog {
         this.id = id;
     }
     public String getTitle() {
-        return Title;
+        return title;
     }
     public void setTitle(String title) {
-        Title = title;
+        this.title = title;
     }
-    /*public String getSlug() {
-        return slug;
-    }
-    public void setSlug(String slug) {
-        this.slug = slug;
-    }*/
     public String getDescription() {
-        return Description;
+        return description;
     }
     public void setDescription(String description) {
-        Description = description;
+        this.description = description;
     }
     public String getAuthor() {
         return author;
@@ -112,12 +108,6 @@ public class Blog {
     public void setViewsCount(Integer viewsCount) {
         this.viewsCount = viewsCount;
     }
-   /*public Boolean getCommentsEnabled() {
-        return commentsEnabled;
-    }
-    public void setCommentsEnabled(Boolean commentsEnabled) {
-        this.commentsEnabled = commentsEnabled;
-    }*/
     public String getMetaTitle() {
         return metaTitle;
     }

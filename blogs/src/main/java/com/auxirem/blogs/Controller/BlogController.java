@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.auxirem.blogs.Model.Blog;
 import com.auxirem.blogs.Services.BlogService;
-@CrossOrigin
+@CrossOrigin 
 @RestController
 @RequestMapping("/blogs")
 public class BlogController {
