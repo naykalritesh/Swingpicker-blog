@@ -3,6 +3,7 @@ package com.auxirem.blogs.Controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.auxirem.blogs.Model.Blog;
 import com.auxirem.blogs.Services.BlogService;
-
+@CrossOrigin
 @RestController
 @RequestMapping("/blogs")
 public class BlogController {
@@ -25,6 +26,7 @@ public class BlogController {
     // Get all blogs
     @GetMapping("/all")
     public List<Blog> getAllBlogs() {
+        System.out.println("get All get called");
         return blogService.getAllBlogs();
     }
 
@@ -37,9 +39,10 @@ public class BlogController {
     // create new blog
     @PostMapping("/add")
     public Blog createNewBlog(@RequestBody Blog blog){
+        System.out.println(blog.getImages());
         return blogService.createNewBlog(blog);
     }
-    
+        
     //update blog
     @PutMapping("/{id}")
     public Blog updateBlog(@PathVariable Long id,@RequestBody Blog blog){
@@ -51,6 +54,7 @@ public class BlogController {
         blogService.deleteBlog(id);
         return "Blog with ID " + id + " deleted successfully.";
     }
+
 
 }
 

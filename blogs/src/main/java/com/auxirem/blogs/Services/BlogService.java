@@ -1,5 +1,6 @@
 package com.auxirem.blogs.Services;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,6 +33,8 @@ public class BlogService {
     }
 
     public Blog createNewBlog(Blog blog){
+        blog.setCreated_On(LocalDateTime.now());
+        blog.setUpdated_On(LocalDateTime.now());
         return  blogRepository.save(blog);
     }
 
@@ -47,6 +50,7 @@ public class BlogService {
             blog.setReadTime(updatedBlog.getReadTime());
             blog.setMetaTitle(updatedBlog.getMetaTitle());
             blog.setMetaDescription(updatedBlog.getMetaDescription());
+            blog.setUpdated_On(LocalDateTime.now());
             return blogRepository.save(blog);
         }).orElseThrow(() -> new RuntimeException("Blog not found with id " + id));
     }
@@ -55,5 +59,8 @@ public class BlogService {
          blogRepository.deleteById(id);
     }
 
-
+    
 }
+
+
+
