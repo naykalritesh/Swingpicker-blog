@@ -15,7 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.auxirem.blogs.Model.Blog;
 import com.auxirem.blogs.Services.BlogService;
-@CrossOrigin 
+
+@CrossOrigin (origins = "http://localhost:5173")
 @RestController
 @RequestMapping("/blogs")
 public class BlogController {
@@ -26,7 +27,7 @@ public class BlogController {
     // Get all blogs
     @GetMapping("/all")
     public List<Blog> getAllBlogs() {
-        System.out.println("get All get called");
+
         return blogService.getAllBlogs();
     }
 
@@ -39,7 +40,7 @@ public class BlogController {
     // create new blog
     @PostMapping("/add")
     public Blog createNewBlog(@RequestBody Blog blog){
-        System.out.println(blog.getImages());
+        System.out.println(blog.getThumbnailImage());
         return blogService.createNewBlog(blog);
     }
         

@@ -26,8 +26,8 @@ public class Blog {
     
 
     @Column(columnDefinition = "MEDIUMTEXT",nullable = false)
-    private String description;
-    private String images;
+    private String content;
+    private String thumbnailImage;
     private String author;
     private String category;
     
@@ -60,11 +60,11 @@ public class Blog {
     public void setTitle(String title) {
         this.title = title;
     }
-    public String getDescription() {
-        return description;
+    public String getContent() {
+        return content;
     }
-    public void setDescription(String description) {
-        this.description = description;
+    public void setContent(String content) {
+        this.content = content;
     }
     public String getAuthor() {
         return author;
@@ -72,12 +72,8 @@ public class Blog {
     public void setAuthor(String author) {
         this.author = author;
     }
-    public String getImages() {
-        return images;
-    }
-    public void setImages(String images) {
-        this.images = images;
-    }
+ 
+    
     public String getCategory() {
         return category;
     }
@@ -131,5 +127,11 @@ public class Blog {
     }
     public void setUpdated_On(LocalDateTime updated_On) {
         this.updated_On = updated_On;
+    }
+    public String getThumbnailImage() {
+        return thumbnailImage;
+    }
+    public void setThumbnailImage(String thumbnailImage) {
+        this.thumbnailImage = thumbnailImage;
     }
 }
