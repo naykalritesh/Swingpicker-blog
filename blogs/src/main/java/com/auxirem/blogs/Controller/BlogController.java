@@ -28,37 +28,37 @@ public class BlogController {
     private BlogService blogService;
 
     // Get all blogs
-    @GetMapping("/all")
+    @GetMapping("/public/all")
     public List<Blog> getAllBlogs() {
         logger.info("Fetching all blogs");
         return blogService.getAllBlogs();
     }
 
     //Get Blog by id
-    @GetMapping("/{id}")
+    @GetMapping("/public/{id}")
     public Blog getBlogById(@PathVariable Long id){
-        logger.info("Fetching blog with Id:",id);
+        logger.info("Fetching blog with Id: {}",id);
         return blogService.getBlogById(id);
     }
 
     // create new blog
     @PostMapping("/add")
     public Blog createNewBlog(@RequestBody Blog blog){
-        logger.info("Creating new blog with title:",blog.getTitle());
-        logger.debug("Thumbnail image:",blog.getThumbnailImage());
+        logger.info("Creating new blog with title: {}",blog.getTitle());
+        logger.debug("Thumbnail image: {}",blog.getThumbnailImage());
         return blogService.createNewBlog(blog);
     }
         
     //update blog
-    @PutMapping("/{id}")
+    @PutMapping("/update/{id}")
     public Blog updateBlog(@PathVariable Long id,@RequestBody Blog blog){
-        logger.info("updating blog with id:", id);
+        logger.info("updating blog with id: {}", id);
         return blogService.updateBlog(id, blog);
     }
      
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete/{id}")
     public String deleteBlog(@PathVariable Long id){
-        logger.info("Deleting blog with id:", id);
+        logger.info("Deleting blog with id: {}", id);
         blogService.deleteBlog(id);
         return "Blog with ID " + id + " deleted successfully.";
     }
