@@ -16,8 +16,8 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-
                 .csrf(csrf -> csrf.disable())// ✅ new syntax
+                
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/blogs/public/**").permitAll()
                         .anyRequest().access((authentication, context) -> {

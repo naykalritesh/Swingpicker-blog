@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.auxirem.blogs.Model.Blog;
 import com.auxirem.blogs.Services.BlogService;
 
-@CrossOrigin(origins = "http://localhost:5173")
 @RestController
 @RequestMapping("/blogs")
 public class BlogController {
